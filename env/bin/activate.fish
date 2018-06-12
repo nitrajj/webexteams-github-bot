@@ -36,7 +36,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/nithyraj/Documents/python-webex-teams-bot/env"
+set -gx VIRTUAL_ENV "/Users/nithyraj/Documents/python-webex-teams-bot-master/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

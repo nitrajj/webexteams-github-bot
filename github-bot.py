@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 import json 
-import urllib.request as urllib2
+import urllib2
 import hmac
 import hashlib
 
@@ -60,8 +60,8 @@ def githubCommits():
 # POST Function  that sends the commits & comments in markdown to a Spark room    
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
-    headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer MWVkODEwYTEtODAzOC00ZDc5LWIyNmQtODM3OWE0MDlmY2JhNTVhZjA5YzItMmFi'}
-    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vNmM3ZmM4MWEtZTc5OS0zZTRjLWFiMjYtMjJhODJhODhjMDIz', 'markdown': commits }
+    headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer Mjc4NjdmMGQtNjE3Zi00MDk0LTk4ZDctZWI1NzZhMzEwYmFkYmJhMjM3MjItYjg2'}
+    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw', 'markdown': commits }
     data = json.dumps(values)
     req = urllib2.Request(url = url , data = data , headers = headers)
     response = urllib2.urlopen(req)
