@@ -3,7 +3,9 @@ A Webex Teams bot that allows users to register for notifications &amp; alerts a
 
 How to Run Program:
 
-1. Installing virtualenv
+1. Download this project 
+
+2. Installing virtualenv
 
   On macOS and Linux:
   python3 -m pip install --user virtualenv
@@ -20,6 +22,10 @@ How to Run Program:
     On macOS and Linux:
     source env/bin/activate
 
-2. Run Script 
+3. Install Dependencies 
 
-python github-bot.py
+  pip install -r requirements.txt
+
+4. Run Script 
+
+  python github-bot.py

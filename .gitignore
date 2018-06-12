@@ -1,2 +1,10 @@
 # OSX
 .DS_Store
+
+#Visual Code stuff
+.vscode
+
+#Virtual Env for Python
+.env
+
+
