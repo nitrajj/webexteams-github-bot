@@ -11,7 +11,7 @@ SECRET_TOKEN = "EventsToSparkRoom"
 
 @app.route('/', methods =['POST'])
 def add():
-    return 'hello'
+    return 'hello, my name is same'
 
 def githubCommits():
     # This function validates if the request is properly signed by Github.
