@@ -10,6 +10,8 @@ app = Flask(__name__)
 SECRET_TOKEN = "EventsToSparkRoom"
 
 @app.route('/', methods =['POST'])
+def add():
+    return 'hello'
 
 def githubCommits():
     # This function validates if the request is properly signed by Github.
@@ -53,10 +55,9 @@ def githubCommits():
             return 'Ok'
      
     else:
-        print ("Spoofed Hook")
+        print ("Fake Hook")
         abort(401)
-        
-        
+
 # POST Function  that sends the commits & posts it to Spark room    
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
