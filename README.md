@@ -29,5 +29,6 @@ How to Run Program:
 4. Run Script 
 
   python github-bot.py
-  
-hello
+
+Note for me : 
+ngrok http 80
