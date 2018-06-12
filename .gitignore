@@ -6,6 +6,3 @@
 
 #Virtual Env for Python
 .env
-
-#Cache
-.githubbot.pyc
