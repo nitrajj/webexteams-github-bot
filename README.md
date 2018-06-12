@@ -10,17 +10,17 @@ How to Run Program:
   On macOS and Linux:
   python3 -m pip install --user virtualenv
 
-    To create a virtual environment, go to your project’s directory and run virtualenv.
-    
-    1.1 Creating a virtualenv
-    
-    On macOS and Linux:
-    python3 -m virtualenv env
+  To create a virtual environment, go to your project’s directory and run virtualenv.
+  
+  1.1 Creating a virtualenv
+  
+  On macOS and Linux:
+  python3 -m virtualenv env
 
-    1.2 Activating a virtualenv
+  1.2 Activating a virtualenv
 
-    On macOS and Linux:
-    source env/bin/activate
+  On macOS and Linux:
+  source env/bin/activate
 
 3. Install Dependencies 
 
