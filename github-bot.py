@@ -57,7 +57,7 @@ def githubCommits():
         abort(401)
         
         
-# POST Function  that sends the commits & comments in markdown to a Spark room    
+# POST Function  that sends the commits & posts it to Spark room    
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
     headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer Mjc4NjdmMGQtNjE3Zi00MDk0LTk4ZDctZWI1NzZhMzEwYmFkYmJhMjM3MjItYjg2'}
