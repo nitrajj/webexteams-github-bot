@@ -6,3 +6,6 @@
 
 #Virtual Env for Python
 .env
+
+#Binary File
+*.pyc
