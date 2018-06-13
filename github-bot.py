@@ -41,18 +41,7 @@ def githubCommits():
             results = """**Author**: {0}\n\n**Committer**: {1}\n\n**Pusher**: {2}\n\n**Commit Message**: {3}\n\n**Commit id**: {4}\n\n**Time**: {5}\n\n**Repository**: {6}\n\n**Commit Link**: {7}<br><br>""".format(commit_author_name,committer_name,pusher_name,commit_message,commit_id,commit_time,repo_name,commit_url)
             toSpark(results)
             return 'Ok'
-            
-        elif 'commit_comment' == headers.get('X-GitHub-Event'):
-            comment_raw = json_file['comment']
-            comment_url = comment_raw['html_url']
-            comment_user = comment_raw['user']['login']
-            commit_id = comment_raw['commit_id']
-            comment = comment_raw['body']
-            comment_repo = json_file['repository']['name']
-            results = """**User**: {0}\n\n**Comment on Commit**: {1}\n\n**Comment url**: {2}\n\n**Commit id**: {3}\n\n**Repository**: {4}<br><br>""".format(comment_user,comment,comment_url,commit_id,comment_repo)
-            toSpark(results)
-            return 'Ok'
-     
+
     else:
         print ("Fake Hook")
         abort(401)
