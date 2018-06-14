@@ -38,7 +38,7 @@ def githubCommits():
             pusher_name = json_file['pusher']['name']
             repo_name = json_file['repository']['name']
             results = """**Author**: {0}\n\n**Committer**: {1}\n\n**Pusher**: {2}\n\n**Commit Message**: {3}\n\n**Commit id**: {4}\n\n**Time**: {5}\n\n**Repository**: {6}\n\n**Commit Link**: {7}<br><br>""".format(commit_author_name,committer_name,pusher_name,commit_message,commit_id,commit_time,repo_name,commit_url)
-            toSpark(results)
+            toSpark(results)zzz
             return 'Ok'
 
     else:
