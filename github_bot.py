@@ -38,7 +38,7 @@ def githubCommits():
             pusher_name = json_file['pusher']['name']
             repo_name = json_file['repository']['name']
             results = """**Author**: {0}\n\n**Committer**: {1}\n\n**Pusher**: {2}\n\n**Commit Message**: {3}\n\n**Commit id**: {4}\n\n**Time**: {5}\n\n**Repository**: {6}\n\n**Commit Link**: {7}<br><br>""".format(commit_author_name,committer_name,pusher_name,commit_message,commit_id,commit_time,repo_name,commit_url)
-            toSpark(results)zzz
+            toSpark(results)
             return 'Ok'
 
     else:
@@ -48,8 +48,8 @@ def githubCommits():
 # POST Function  that sends the commits & posts it to Spark room    
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
-    headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer Mjc4NjdmMGQtNjE3Zi00MDk0LTk4ZDctZWI1NzZhMzEwYmFkYmJhMjM3MjItYjg2'}
-    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw', 'markdown': commits }
+    headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer ZTE0NmMwMjEtN2JhYS00MGU5LWFiOGYtMmZmNGQ3YzMyYWI2OTUwYjlhY2EtZmJh'}
+    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vZWJkZmI3ZjAtNzAxZC0xMWU4LThjY2UtZmIwNTVhNDA5NzE3', 'markdown': commits }
     data = json.dumps(values)
     req = urllib2.Request(url = url , data = data , headers = headers)
     response = urllib2.urlopen(req)
