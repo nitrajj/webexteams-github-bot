@@ -45,11 +45,13 @@ def githubCommits():
         print ("Fake Hook")
         abort(401)
 
-# POST Function  that sends the commits & posts it to Spark room    
+# POST Function  that sends the commits & posts it to Spark room  
+#testing
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
     headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer ZTE0NmMwMjEtN2JhYS00MGU5LWFiOGYtMmZmNGQ3YzMyYWI2OTUwYjlhY2EtZmJh'}
     values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vZWJkZmI3ZjAtNzAxZC0xMWU4LThjY2UtZmIwNTVhNDA5NzE3', 'markdown': commits }
+
     data = json.dumps(values)
     req = urllib2.Request(url = url , data = data , headers = headers)
     response = urllib2.urlopen(req)
