@@ -49,9 +49,13 @@ def githubCommits():
 #testing
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
-    headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer Y2lzY29zcGFyazovL3VzL0FQUExJQ0FUSU9OLzgxZDc4MGQ0LTIxMDgtNGQwOS1hYWE0LWI0OTA3Y2U3MDFiMw'}
-    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw', 'markdown': commits }
-
+    headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer MTM2Y2I3MDctNDcwOS00MmI1LTliZDUtMDAxZmVjODE3MzRmYzdlYTMzNWQtYTU5'}
+    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vOGYxOGYwNzAtNzAyNC0xMWU4LWJhNDYtZTk5NjdlOThmOGM2', 'markdown': commits }
+    
+    #mine 
+    #Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw
+    #john
+    #Y2lzY29zcGFyazovL3VzL1JPT00vOGYxOGYwNzAtNzAyNC0xMWU4LWJhNDYtZTk5NjdlOThmOGM2
     data = json.dumps(values)
     req = urllib2.Request(url = url , data = data , headers = headers)
     response = urllib2.urlopen(req)
