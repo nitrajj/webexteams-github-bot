@@ -27,7 +27,6 @@ def githubCommits():
         
         json_file = request.json
         
-        
         if 'push' == headers.get('X-GitHub-Event'):
             commit = json_file['commits'][0]
             commit_id = commit['id']
