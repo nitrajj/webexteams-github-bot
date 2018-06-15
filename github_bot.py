@@ -52,7 +52,7 @@ def githubCommits():
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
     headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer MTM2Y2I3MDctNDcwOS00MmI1LTliZDUtMDAxZmVjODE3MzRmYzdlYTMzNWQtYTU5'}
-    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw' 'Y2lzY29zcGFyazovL3VzL1JPT00vMTIyMmRhZjAtNzAzMi0xMWU4LTk3NTMtMWIwOWVjNGVjNTNl', 'markdown': commits }
+    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw, Y2lzY29zcGFyazovL3VzL1JPT00vMTIyMmRhZjAtNzAzMi0xMWU4LTk3NTMtMWIwOWVjNGVjNTNl', 'markdown': commits }
     
     #mine 
     #Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw
