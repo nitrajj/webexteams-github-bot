@@ -1,10 +1,13 @@
 from flask import Flask, request, abort
+import requests
 import json 
 import urllib2
 import hmac
 import hashlib
 
 app = Flask(__name__)
+
+room_Id = {}
 
 #Secret provided in the Github webhook config
 SECRET_TOKEN = "EventsToSparkRoom"
@@ -46,23 +49,43 @@ def githubCommits():
         abort(401)
 
 # GET Function that gets user's room id that the bot is added to 
+def getRoomId():
+    url = "https://api.ciscospark.com/v1/rooms"
+
+    headers = {
+    'Content-Type': "application/json",
+    'Authorization': "Bearer MTM2Y2I3MDctNDcwOS00MmI1LTliZDUtMDAxZmVjODE3MzRmYzdlYTMzNWQtYTU5",
+    'Cache-Control': "no-cache",
+    'Postman-Token': "e603ac77-7f1e-4082-ad38-a9a02eeec7d5"
+    }
+
+    response = requests.request("GET", url, headers=headers)
+    res = response.json
+    data = json.load(res)
+
+    for i in data['items']:
+        room_Id[i['id'], i['title']]
+        print (room_Id)
+    return 'ok'
 
 
 # POST Function  that sends the commits & posts it to Spark room  
 def toSpark(commits):
-    url = 'https://api.ciscospark.com/v1/messages'
-    headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer MTM2Y2I3MDctNDcwOS00MmI1LTliZDUtMDAxZmVjODE3MzRmYzdlYTMzNWQtYTU5'}
-    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw, Y2lzY29zcGFyazovL3VzL1JPT00vMTIyMmRhZjAtNzAzMi0xMWU4LTk3NTMtMWIwOWVjNGVjNTNl', 'markdown': commits }
-    
-    #mine 
-    #Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw
-    #john
-    #Y2lzY29zcGFyazovL3VzL1JPT00vOGYxOGYwNzAtNzAyNC0xMWU4LWJhNDYtZTk5NjdlOThmOGM2
-    data = json.dumps(values)
-    req = urllib2.Request(url = url , data = data , headers = headers)
-    response = urllib2.urlopen(req)
-    the_page = response.read()
-    return the_page
+
+    for key in room_Id:
+        url = 'https://api.ciscospark.com/v1/messages'
+        headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer MTM2Y2I3MDctNDcwOS00MmI1LTliZDUtMDAxZmVjODE3MzRmYzdlYTMzNWQtYTU5'}
+        values =   {'roomId': key, 'markdown': commits }
+        
+        #mine 
+        #Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw
+        #john
+        #Y2lzY29zcGFyazovL3VzL1JPT00vOGYxOGYwNzAtNzAyNC0xMWU4LWJhNDYtZTk5NjdlOThmOGM2
+        data = json.dumps(values)
+        req = urllib2.Request(url = url , data = data , headers = headers)
+        response = urllib2.urlopen(req)
+        the_page = response.read()
+        return the_page
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0' , port=8080, debug=True)
