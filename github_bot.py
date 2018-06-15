@@ -45,12 +45,15 @@ def githubCommits():
         print ("Fake Hook")
         abort(401)
 
+# GET Function that gets user's room id that the bot is added to 
+def getRoomId():
+    
+
 # POST Function  that sends the commits & posts it to Spark room  
-#testing
 def toSpark(commits):
     url = 'https://api.ciscospark.com/v1/messages'
     headers = {'accept':'application/json','Content-Type':'application/json','Authorization': 'Bearer MTM2Y2I3MDctNDcwOS00MmI1LTliZDUtMDAxZmVjODE3MzRmYzdlYTMzNWQtYTU5'}
-    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vOGYxOGYwNzAtNzAyNC0xMWU4LWJhNDYtZTk5NjdlOThmOGM2', 'markdown': commits }
+    values =   {'roomId':'Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw', 'markdown': commits }
     
     #mine 
     #Y2lzY29zcGFyazovL3VzL1JPT00vM2MzMzk4MmYtNzQ2Yi0zNzNjLWEwNTItM2M1MDg5MWU0NDYw
