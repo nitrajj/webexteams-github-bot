@@ -30,5 +30,4 @@ How to Run Program:
 
   python github-bot.py
 
-Note for me : 
-ngrok http 80
+
